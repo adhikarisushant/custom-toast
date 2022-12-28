@@ -1,0 +1,158 @@
+/* Google Font Import - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f2f2f2;
+    overflow-x: hidden;
+}
+
+.toastmsg{
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    border-radius: 12px;
+    background: #fff;
+    padding: 20px 35px 20px 25px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transform: translateX(calc(100% + 30px));
+    transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+}
+
+.toastmsg.activemsg{
+    transform: translateX(0%);
+}
+
+.toastmsg .toast-contentmsg{
+    display: flex;
+    align-items: center;
+}
+
+.toast-contentmsg .messagemsg{
+    display: flex;
+    flex-direction: column;
+    margin: 0 20px;
+}
+
+.messagemsg .textmsg{
+    font-size: 20px;
+    font-weight: 400;;
+    color: #666666;
+}
+
+.messagemsg .textmsg.text-1msg{
+    font-weight: 600;
+    color: #333;
+}
+
+.toastmsg .closemsg{
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    padding: 5px;
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.toastmsg .closemsg:hover{
+    opacity: 1;
+}
+
+.toastmsg .progressmsg{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: #ddd;
+}
+
+.toastmsg .progressmsg:before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+}
+
+.progressmsg.activemsg:before{
+    animation: progressmsg 5s linear forwards;
+}
+
+@keyframes progressmsg {
+    100%{
+        right: 100%;
+    }
+}
+
+.toastErrormsg{
+    border-left: 6px solid #bb2124;
+}
+
+.toastSuccessmsg{
+    border-left: 6px solid #22bb33;
+}
+
+.toast-contentmsg .errormsg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	flex-grow: 0;
+	flex-shrink: 0;
+    height: 35px;
+    width: 35px;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 50%;
+    background-color: #bb2124;
+}
+
+.toastErrormsg .progressmsg:before{
+    background-color: #bb2124;
+}
+
+
+.toast-contentmsg .successmsg{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 0;
+	flex-shrink: 0;
+    height: 35px;
+    width: 35px;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 50%;
+    background-color: #22bb33;
+}
+
+.toastSuccessmsg .progressmsg:before{
+    background-color: #22bb33;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .toastmsg{
+        right: 50px!important;
+        max-width: 85vw;
+    }
+
+    .toast-contentmsg .successmsg{
+        font-size: 14px;
+    }
+
+    .toast-contentmsg .errormsg{
+        font-size: 14px;
+    }
+}
